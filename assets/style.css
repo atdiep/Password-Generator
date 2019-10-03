@@ -1,0 +1,29 @@
+body {
+    background-image: url(../assets/Images/background.jpg);
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    color: dodgerblue;
+}
+
+.adjust {
+    padding: 0px 40px 40px 40px;
+    background-color: white;
+}
+
+#adjust2 {
+    padding-top: 20px;
+}
+
+.form-control {
+    border-style: dashed;
+}
+
+textarea::placeholder {
+    text-align: center;
+}
+button {
+    border-radius: 50px !important;
+}
