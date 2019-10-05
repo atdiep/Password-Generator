@@ -1,38 +1,46 @@
 //User will click on "Generate a Password" and initiate following criteria:
 
-//Confirm user if they want special characters. (Strings or arrays)
+var generateEl = document.querySelector("#generate");
 
-//Confirm user if they want numbers (0-9).
+trigger();
 
-//Confirm user if they want Lowercase characters.
+var num;
+var confirmSpecial;
+var confirmNumbers;
+var confirmUpper;
+var confirmLower;
 
-//Confirm user if they want Uppercase characters.
+function trigger() {
+    num = prompt("How many characters do you want to have? Pick between 8-128.")
+    if (parseInt(num) < 8 || parseInt(num) > 128) {
+        alert("Please choose a number between 8-128!");
+        return trigger();
+
+    } else {
+        confirmSpecial = confirm("Do you want to include special characters?");
+        confirmNumbers = confirm("Do you want to include numberic characters?");
+        confirmUpper = confirm("Do you want to include uppercase characters?");
+        confirmLower = confirm("Do you want to include lowercase characters?");
+    }
+}
 
 //If user picks 'No' for all, alert the user to confirm at least 1 criteria.
 
-//Bind all inputs
+if (confirmSpecial === false && confirmNumbers === false && confirmUpper === false && confirmLower === false) {
+    alert("Please choose at least one criteria.");
+}
+
 
 //Create a function that randomly pick one of the following chosen criteria.
 
-//Make a loop that runs until 10 characters are given.
-
-var generateEl = document.querySelector("#generate");
-
-var num = prompt("How many characters do you want to have? Pick between 8-128.")
-var confirmSpecial = confirm("Do you want to include special characters?");
-var confirmNumbers = confirm("Do you want to include numberic characters?");
-var confirmUpper = confirm("Do you want to include uppercase characters?");
-var confirmLower = confirm("Do you want to include lowercase ");
-if (confirmSpecial === false && confirmNumbers === false && confirmUpper === false && confirmLower === false) {
-    alert("Please choose at least one criteria.")
-}
-
 function generate(num) {
-    console.log("Generate call");
     var special = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
     var numbers = "0123456789";
     var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var lower = "abcdefghijklmnopqrstuvwxyz";
+
+    //Bind all inputs
+
     var all = "";
     if (confirmSpecial) {
         all = all + special;
@@ -46,8 +54,11 @@ function generate(num) {
     if (confirmLower) {
         all = all + lower;
     }
+
+    //Make a loop that runs until 'num' characters are given.
+
     var password = "";
-    for (i = 0; i <= num; i++) {
+    for (i = 0; i < num; i++) {
         var character = Math.floor(Math.random() * all.length);
         password += all.substring(character, character + 1);
     }
@@ -57,5 +68,9 @@ function generate(num) {
     return password;
 }
 
-
+var copyEL = document.querySelector("#copy");
+function copy() {
+    document.getElementById("password").select();
+    document.execCommand("copy");
+}
 
