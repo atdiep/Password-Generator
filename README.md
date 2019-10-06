@@ -14,7 +14,7 @@ The application will initiate the user to choose from the following password cri
 
 Click 'Confirm' for Yes or 'Cancel' for No.
 
-After the criteria are chosen, Click 'Generate Password' button again to create a new password.
+After the criteria are chosen, Click 'Generate Password' button to create a new password.
 
 If the user wishes to copy the password, click on 'Copy to Clipboard' button. 
 
