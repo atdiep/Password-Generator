@@ -2,7 +2,7 @@
 
 var generateEl = document.querySelector("#generate");
 
-trigger();
+getInRange();
 
 var num;
 var confirmSpecial;
@@ -10,11 +10,11 @@ var confirmNumbers;
 var confirmUpper;
 var confirmLower;
 
-function trigger() {
-    num = prompt("How many characters do you want to have? Pick between 8-128.")
+function getInRange() {
+    num = prompt("How many characters do you want to have? Pick between 8-128.");
     if (parseInt(num) < 8 || parseInt(num) > 128) {
         alert("Please choose a number between 8-128!");
-        return trigger();
+        return getInRange();
 
     } else {
         confirmSpecial = confirm("Do you want to include special characters?");
@@ -28,8 +28,8 @@ function trigger() {
 
 if (confirmSpecial === false && confirmNumbers === false && confirmUpper === false && confirmLower === false) {
     alert("Please choose at least one criteria.");
+    getInRange();
 }
-
 
 //Create a function that randomly pick one of the following chosen criteria.
 
@@ -64,7 +64,7 @@ function generate(num) {
     }
     console.log(password);
     var passwordEL = document.querySelector("#password");
-    passwordEL.innerHTML = password
+    passwordEL.innerHTML = password;
     return password;
 }
 
